@@ -1,37 +1,37 @@
-"use client";
-import axios from "axios";
-import Image from "next/image";
-import { useState } from "react";
-import image from "@/public/image.jpg";
-import { BsSearch } from "react-icons/bs";
-import Weather from "@/Components/Weather";
-import { WeatherData } from "./types/WeatherData";
+'use client'
+import axios from 'axios'
+import Image from 'next/image'
+import { useState } from 'react'
+import image from '@/public/image.jpg'
+import { BsSearch } from 'react-icons/bs'
+import Weather from '@/app/Components/Weather'
+import { WeatherData } from './types/WeatherData'
 
 export default function Home() {
-  const [city, setCity] = useState("");
-  const [weather, setWeather] = useState<WeatherData | null>(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [city, setCity] = useState('')
+  const [weather, setWeather] = useState<WeatherData | null>(null)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(null)
 
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=90e14f5ca613fbae4c2f2ce32a09146b`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=90e14f5ca613fbae4c2f2ce32a09146b`
 
   const fetchWeather = (e: React.SyntheticEvent) => {
-    e.preventDefault();
-    setLoading(true);
+    e.preventDefault()
+    setLoading(true)
     axios
       .get(url)
       .then((response) => {
-        setWeather(response.data);
-        setLoading(false);
+        setWeather(response.data)
+        setLoading(false)
         // console.log(response.data);
       })
       .catch((error) => {
-        console.error("Error fetching weather data:", error);
-        setLoading(false);
-        setError(error.message);
-      });
-    setCity("");
-  };
+        console.error('Error fetching weather data:', error)
+        setLoading(false)
+        setError(error.message)
+      })
+    setCity('')
+  }
 
   return (
     <main>
@@ -78,5 +78,5 @@ export default function Home() {
         )}
       </div>
     </main>
-  );
+  )
 }
