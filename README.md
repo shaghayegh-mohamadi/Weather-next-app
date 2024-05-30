@@ -1,5 +1,6 @@
 # Weather Project
-![viewfinal](
+
+![Project Screenshot](
 ![Annotation 2024-05-29 131841](https://github.com/shaghayegh-mohamadi/Weather-next-app/assets/157354959/ce60b79a-9d6e-439e-94b2-1969106b0943)
 
 )
